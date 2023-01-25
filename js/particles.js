@@ -4,14 +4,13 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const geometry = new THREE.BufferGeometry();
+const particlegeometry = new THREE.BufferGeometry();
 const vertices = [];
 const materials = []
 var amountOfParticles = 1000;
 
 const textureLoader = new THREE.TextureLoader();
-
-const sprite = textureLoader.load( 'js/particle.png' );
+const redParticle = textureLoader.load( 'js/particle.png' );
 
 for ( let i = 0; i < amountOfParticles; i ++ ) {
 
@@ -23,13 +22,13 @@ for ( let i = 0; i < amountOfParticles; i ++ ) {
 
 }
 
-geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+particlegeometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
 
 for ( let i = 0; i < 5; i ++ ) {
 
-	materials[ i ] = new THREE.PointsMaterial( { size: 10 , map: sprite, blending: THREE.AdditiveBlending, depthTest: false, transparent: true } );
+	materials[ i ] = new THREE.PointsMaterial( { size: 10 , map: redParticle, blending: THREE.AdditiveBlending, depthTest: false, transparent: true } );
 
-	const particles = new THREE.Points( geometry, materials[ i ] );
+	const particles = new THREE.Points( particlegeometry, materials[ i ] );
 
 	particles.rotation.x = Math.random() * 6;
 	particles.rotation.y = Math.random() * 6;

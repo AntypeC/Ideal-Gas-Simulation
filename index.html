@@ -5,13 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="./js/three.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>Ideal Gas Simulation</title>
 </head>
 <body>
-    <script src="js/particles.js" type="module"></script>
+    <div id="title">
+        <h1>Ideal Gas Simulation</h1>
+    </div>
+    <script id="simulation" type="module" src="js/script.js"></script>
+    <div id="info">
+        <p>
+            The ideal gas law is represented by the equation:
+            <br>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <mrow>
+                <mi>P</mi>
+                <mo>&#x22C5;</mo>
+                <mi>V</mi>
+                <mo>=</mo>
+                <mi>n</mi>
+                <mo>&#x22C5;</mo>
+                <mi>R</mi>
+                <mo>&#x22C5;</mo>
+                <mi>T</mi>
+              </mrow>
+            </math>
+        </p>                 
+        <ol>
+            <li>P is the pressure</li>
+            <li>V is the volume</li>
+            <li>n is the number of moles</li>
+            <li>R is the ideal gas constant</li>
+            <li>T is the temperature</li>
+        </ol>
+    </div>
+    <canvas id="P-against-V" style="width:100%;max-width:700px"></canvas>
+    <script src="js/graph.js"></script>
 </body>
 <style>
+    #title {
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+    #info {
+        position: absolute;
+        top: 20vh;
+        left: 15px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        z-index: 1;
+    }
+    #P-against-V {
+        position: absolute;
+        top: 40vh;
+    }
     body {
+        position: fixed;
         background-color: black;
         border: 0;
     }
