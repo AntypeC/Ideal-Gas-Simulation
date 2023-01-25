@@ -12,7 +12,9 @@
     <div id="title">
         <h1>Ideal Gas Simulation</h1>
     </div>
-    <script id="simulation" type="module" src="js/script.js"></script>
+    <div id="left-quadrant"></div>
+    <div id="simulation"></div>
+    <script type="module" src="js/script.js"></script>
     <div id="info">
         <p id="equation">
             The ideal gas law is represented by the equation:
@@ -31,21 +33,31 @@
               </mrow>
             </math>
         </p>                 
-        <ol id="description">
+        <ul id="description">
             <li>P is the pressure</li>
             <li>V is the volume</li>
             <li>n is the number of moles</li>
             <li>R is the ideal gas constant</li>
             <li>T is the temperature</li>
-        </ol>
+        </ul>
     </div>
     <canvas id="P-against-V" style="width:100%;max-width:700px"></canvas>
     <script src="js/graph.js"></script>
+    <script src="js/calculator.js"></script>
 </body>
 <style>
+    #left-quadrant {
+        position: fixed;
+        width: 50%; 
+        height: 100%;
+        float:left; 
+        border-right: 2px solid white;
+        background-color: black;
+    }
     #title {
         display: flex;
         justify-content: center;
+        border-bottom: 2px solid white;
         color: white;
     }
     #info {
@@ -54,7 +66,7 @@
         left: 15px;
         width: 350px;
         height: 180px;
-        background-color: rgba(0, 0, 0, 0.5);
+        border: 2px solid red;
         border-radius: 8px;
         color: white;
         z-index: 1;
@@ -65,6 +77,11 @@
     #P-against-V {
         position: absolute;
         top: 40vh;
+    }
+    #simulation {
+        position: relative;
+        left: 25vw;
+        z-index: -1;
     }
     body {
         position: fixed;
