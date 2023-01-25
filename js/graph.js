@@ -15,17 +15,23 @@ var xyValues = [
 new Chart("P-against-V", {
   type: "scatter",
   data: {
+    labels: ['P', 'V'],
     datasets: [{
       pointRadius: 4,
       pointBackgroundColor: "rgb(0,0,255)",
+      borderColor: '#FFFFFF',
       data: xyValues
     }]
   },
   options: {
-    legend: {display: false},
+    legend: {
+      display: true
+    },
     scales: {
       xAxes: [{ticks: {min: 40, max:160}}],
       yAxes: [{ticks: {min: 6, max:16}}],
     }
   }
 });
+
+Chart.register(Colors)
